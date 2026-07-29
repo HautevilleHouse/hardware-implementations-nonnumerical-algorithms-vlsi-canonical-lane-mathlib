@@ -1,0 +1,18 @@
+import canonicalLaneMathlib.AdmissibleClass
+import HautevilleHouse.HardwareImplementationsNonnumericalAlgorithmsVlsiCanonicalLaneLean.CircuitModel
+import HautevilleHouse.HardwareImplementationsNonnumericalAlgorithmsVlsiCanonicalLaneLean.RouteScheduling
+import HautevilleHouse.HardwareImplementationsNonnumericalAlgorithmsVlsiCanonicalLaneLean.Partitioning
+import HautevilleHouse.HardwareImplementationsNonnumericalAlgorithmsVlsiCanonicalLaneLean.Placement
+import HautevilleHouse.HardwareImplementationsNonnumericalAlgorithmsVlsiCanonicalLaneLean.Verification
+
+namespace HautevilleHouse
+namespace HardwareImplementationsNonnumericalAlgorithmsVlsiCanonicalLaneLean
+
+def ConstrainedVlsiClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_vlsi_endgame (A : AdmissibleClass) : ConstrainedVlsiClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end HautevilleHouse.HardwareImplementationsNonnumericalAlgorithmsVlsiCanonicalLaneLean
+end HautevilleHouse
